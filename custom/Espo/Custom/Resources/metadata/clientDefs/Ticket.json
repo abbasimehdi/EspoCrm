@@ -1,0 +1,19 @@
+{
+    "controller": "controllers/record",
+    "boolFilterList": [
+        "onlyMy"
+    ],
+    "iconClass": "fas fa-align-justify",
+    "kanbanViewMode": false,
+    "color": null,
+    "dynamicLogic": {
+        "options": {
+            "email": [
+                {
+                    "optionList": [],
+                    "conditionGroup": null
+                }
+            ]
+        }
+    }
+}

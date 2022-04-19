@@ -1,0 +1,30 @@
+[
+    {
+        "rows": [
+            [
+                {
+                    "name": "fullname"
+                },
+                {
+                    "name": "description"
+                }
+            ],
+            [
+                {
+                    "name": "email"
+                },
+                {
+                    "name": "image"
+                }
+            ],
+            [
+                {
+                    "name": "phone"
+                },
+                false
+            ]
+        ],
+        "style": "default",
+        "label": "Overview"
+    }
+]

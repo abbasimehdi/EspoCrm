@@ -1,0 +1,10 @@
+{
+    "scopeNames": {
+        "Account2": "Account2",
+        "Ticket": "Ticket"
+    },
+    "scopeNamesPlural": {
+        "Account2": "Account2s",
+        "Ticket": "Tickets"
+    }
+}

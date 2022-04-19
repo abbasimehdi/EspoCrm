@@ -1,0 +1,16 @@
+{
+    "fields": {
+        "image": "Image",
+        "name": "fullname",
+        "fullname": "Fullname",
+        "email": "Email",
+        "phone": "Phone"
+    },
+    "links": [],
+    "labels": {
+        "Create Ticket": "Create Ticket"
+    },
+    "tooltips": {
+        "image": "upload image"
+    }
+}
