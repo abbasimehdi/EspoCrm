@@ -2,10 +2,8 @@
     "fields": {
         "name": {
             "type": "varchar",
-            "required": false,
-            "trim": false,
-            "maxLength": 32,
-            "options": []
+            "required": true,
+            "trim": true
         },
         "description": {
             "type": "text"
@@ -37,28 +35,6 @@
             "type": "linkMultiple",
             "view": "views/fields/teams"
         },
-        "image": {
-            "type": "file",
-            "required": true,
-            "sourceList": [
-                "Document"
-            ],
-            "maxFileSize": 3,
-            "accept": [
-                "image/*"
-            ],
-            "audited": true,
-            "tooltip": true,
-            "isCustom": true
-        },
-        "fullname": {
-            "type": "varchar",
-            "required": true,
-            "maxLength": 32,
-            "trim": true,
-            "options": [],
-            "isCustom": true
-        },
         "email": {
             "type": "varchar",
             "required": true,
@@ -68,10 +44,43 @@
             "isCustom": true
         },
         "phone": {
-            "type": "varchar",
+            "type": "text",
+            "required": true,
+            "rowsMin": 2,
+            "cutHeight": 200,
             "maxLength": 11,
-            "trim": true,
-            "options": [],
+            "isCustom": true
+        },
+        "file": {
+            "type": "image",
+            "required": true,
+            "previewSize": "medium",
+            "listPreviewSize": "medium",
+            "maxFileSize": 3,
+            "isCustom": true
+        },
+        "part": {
+            "type": "multiEnum",
+            "storeArrayValues": true,
+            "required": true,
+            "options": [
+                "1",
+                "2",
+                "3"
+            ],
+            "style": {
+                "1": null,
+                "2": null,
+                "3": null
+            },
+            "isCustom": true
+        },
+        "contacts": {
+            "type": "linkMultiple",
+            "layoutDetailDisabled": true,
+            "layoutMassUpdateDisabled": true,
+            "noLoad": true,
+            "importDisabled": true,
             "isCustom": true
         }
     },
@@ -94,11 +103,18 @@
             "relationName": "EntityTeam",
             "layoutRelationshipsDisabled": true
         },
-        "image": {
+        "file": {
             "type": "belongsTo",
             "entity": "Attachment",
             "skipOrmDefs": true,
             "disabled": true
+        },
+        "contacts": {
+            "type": "hasMany",
+            "foreign": "ticket",
+            "entity": "Contact",
+            "audited": false,
+            "isCustom": true
         }
     },
     "collection": {
@@ -107,7 +123,7 @@
         "textFilterFields": [
             "name"
         ],
-        "fullTextSearch": true,
+        "fullTextSearch": false,
         "countDisabled": false
     },
     "indexes": {

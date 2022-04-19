@@ -2544,6 +2544,9 @@ return (object) [
       'CheckInboundEmails' => (object) [
         'preparatorClassName' => 'Espo\\Classes\\JobPreparators\\CheckInboundEmails',
         'jobClassName' => 'Espo\\Classes\\Jobs\\CheckInboundEmails'
+      ],
+      'SendEmail' => (object) [
+        'jobClassName' => 'Espo\\Custom\\Jobs\\SendEmail'
       ]
     ],
     'smsProviders' => (object) [],
@@ -6507,19 +6510,9 @@ return (object) [
       'boolFilterList' => [
         0 => 'onlyMy'
       ],
-      'iconClass' => 'fas fa-align-justify',
+      'iconClass' => 'far fa-envelope',
       'kanbanViewMode' => false,
-      'color' => NULL,
-      'dynamicLogic' => (object) [
-        'options' => (object) [
-          'email' => [
-            0 => (object) [
-              'optionList' => [],
-              'conditionGroup' => NULL
-            ]
-          ]
-        ]
-      ]
+      'color' => NULL
     ]
   ],
   'dashlets' => (object) [
@@ -16609,6 +16602,9 @@ return (object) [
           'readOnly' => true,
           'disabled' => true
         ],
+        'ticket' => (object) [
+          'type' => 'link'
+        ],
         'middleName' => (object) [
           'type' => 'varchar',
           'trim' => true,
@@ -16786,6 +16782,13 @@ return (object) [
           'entity' => 'Task',
           'foreign' => 'contact',
           'layoutRelationshipsDisabled' => true
+        ],
+        'ticket' => (object) [
+          'type' => 'belongsTo',
+          'foreign' => 'contacts',
+          'entity' => 'Ticket',
+          'audited' => false,
+          'isCustom' => true
         ]
       ],
       'collection' => (object) [
@@ -19777,10 +19780,8 @@ return (object) [
       'fields' => (object) [
         'name' => (object) [
           'type' => 'varchar',
-          'required' => false,
-          'trim' => false,
-          'maxLength' => 32,
-          'options' => []
+          'required' => true,
+          'trim' => true
         ],
         'description' => (object) [
           'type' => 'text'
@@ -19812,28 +19813,6 @@ return (object) [
           'type' => 'linkMultiple',
           'view' => 'views/fields/teams'
         ],
-        'image' => (object) [
-          'type' => 'file',
-          'required' => true,
-          'sourceList' => [
-            0 => 'Document'
-          ],
-          'maxFileSize' => 3,
-          'accept' => [
-            0 => 'image/*'
-          ],
-          'audited' => true,
-          'tooltip' => true,
-          'isCustom' => true
-        ],
-        'fullname' => (object) [
-          'type' => 'varchar',
-          'required' => true,
-          'maxLength' => 32,
-          'trim' => true,
-          'options' => [],
-          'isCustom' => true
-        ],
         'email' => (object) [
           'type' => 'varchar',
           'required' => true,
@@ -19843,10 +19822,43 @@ return (object) [
           'isCustom' => true
         ],
         'phone' => (object) [
-          'type' => 'varchar',
+          'type' => 'text',
+          'required' => true,
+          'rowsMin' => 2,
+          'cutHeight' => 200,
           'maxLength' => 11,
-          'trim' => true,
-          'options' => [],
+          'isCustom' => true
+        ],
+        'file' => (object) [
+          'type' => 'image',
+          'required' => true,
+          'previewSize' => 'medium',
+          'listPreviewSize' => 'medium',
+          'maxFileSize' => 3,
+          'isCustom' => true
+        ],
+        'part' => (object) [
+          'type' => 'multiEnum',
+          'storeArrayValues' => true,
+          'required' => true,
+          'options' => [
+            0 => '1',
+            1 => '2',
+            2 => '3'
+          ],
+          'style' => (object) [
+            1 => NULL,
+            2 => NULL,
+            3 => NULL
+          ],
+          'isCustom' => true
+        ],
+        'contacts' => (object) [
+          'type' => 'linkMultiple',
+          'layoutDetailDisabled' => true,
+          'layoutMassUpdateDisabled' => true,
+          'noLoad' => true,
+          'importDisabled' => true,
           'isCustom' => true
         ]
       ],
@@ -19869,11 +19881,18 @@ return (object) [
           'relationName' => 'EntityTeam',
           'layoutRelationshipsDisabled' => true
         ],
-        'image' => (object) [
+        'file' => (object) [
           'type' => 'belongsTo',
           'entity' => 'Attachment',
           'skipOrmDefs' => true,
           'disabled' => true
+        ],
+        'contacts' => (object) [
+          'type' => 'hasMany',
+          'foreign' => 'ticket',
+          'entity' => 'Contact',
+          'audited' => false,
+          'isCustom' => true
         ]
       ],
       'collection' => (object) [
@@ -19882,7 +19901,7 @@ return (object) [
         'textFilterFields' => [
           0 => 'name'
         ],
-        'fullTextSearch' => true,
+        'fullTextSearch' => false,
         'countDisabled' => false,
         'sortBy' => 'createdAt',
         'asc' => false
@@ -22853,7 +22872,7 @@ return (object) [
       'customizable' => true,
       'importable' => true,
       'notifications' => true,
-      'stream' => true,
+      'stream' => false,
       'disabled' => false,
       'type' => 'Base',
       'module' => 'Custom',

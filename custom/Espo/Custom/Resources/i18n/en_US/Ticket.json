@@ -1,16 +1,31 @@
 {
     "fields": {
-        "image": "Image",
-        "name": "fullname",
-        "fullname": "Fullname",
         "email": "Email",
-        "phone": "Phone"
+        "phone": "Phone",
+        "file": "File",
+        "part": "Part",
+        "users": "Users",
+        "user": "User",
+        "account": "Account",
+        "contacts": "Contacts",
+        "call": "Call"
     },
-    "links": [],
+    "links": {
+        "users": "Users",
+        "user": "User",
+        "account": "Account",
+        "contacts": "Contacts",
+        "call": "Call"
+    },
     "labels": {
         "Create Ticket": "Create Ticket"
     },
-    "tooltips": {
-        "image": "upload image"
+    "options": {
+        "part": {
+            "1": "support",
+            "2": "sale",
+            "financial": "3",
+            "3": "financial"
+        }
     }
 }

@@ -1,0 +1,7 @@
+{
+  "options": {
+    "job": {
+      "SendEmail": "Send email Job Label"
+    }
+  }
+}

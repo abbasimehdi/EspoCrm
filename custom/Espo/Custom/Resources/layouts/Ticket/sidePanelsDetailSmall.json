@@ -1,0 +1,12 @@
+{
+    "default": {
+        "dynamicLogicVisible": null,
+        "style": "default",
+        "dynamicLogicStyled": null,
+        "sticked": false,
+        "index": 0
+    },
+    "_delimiter_": {
+        "index": 1
+    }
+}

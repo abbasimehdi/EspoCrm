@@ -1,0 +1,32 @@
+[
+    {
+        "name": "teams"
+    },
+    {
+        "name": "email"
+    },
+    {
+        "name": "name"
+    },
+    {
+        "name": "assignedUser"
+    },
+    {
+        "name": "part"
+    },
+    {
+        "name": "file"
+    },
+    {
+        "name": "phone"
+    },
+    {
+        "name": "description"
+    },
+    {
+        "name": "user"
+    },
+    {
+        "name": ":assignedUser"
+    }
+]

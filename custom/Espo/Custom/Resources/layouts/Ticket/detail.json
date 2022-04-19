@@ -3,25 +3,35 @@
         "rows": [
             [
                 {
-                    "name": "fullname"
+                    "name": "name"
                 },
-                {
-                    "name": "description"
-                }
-            ],
-            [
                 {
                     "name": "email"
-                },
-                {
-                    "name": "image"
                 }
             ],
             [
                 {
-                    "name": "phone"
+                    "name": "description"
                 },
-                false
+                {
+                    "name": "call"
+                }
+            ],
+            [
+                {
+                    "name": "part"
+                },
+                {
+                    "name": "phone"
+                }
+            ],
+            [
+                {
+                    "name": "user"
+                },
+                {
+                    "name": "account"
+                }
             ]
         ],
         "style": "default",

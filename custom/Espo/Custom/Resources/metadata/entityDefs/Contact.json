@@ -1,0 +1,16 @@
+{
+    "fields": {
+        "ticket": {
+            "type": "link"
+        }
+    },
+    "links": {
+        "ticket": {
+            "type": "belongsTo",
+            "foreign": "contacts",
+            "entity": "Ticket",
+            "audited": false,
+            "isCustom": true
+        }
+    }
+}

@@ -16439,6 +16439,24 @@ return [
         'foreign' => 'name',
         'foreignType' => 'varchar'
       ],
+      'ticketId' => [
+        'dbType' => 'varchar',
+        'len' => 24,
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false
+      ],
+      'ticketName' => [
+        'type' => 'foreign',
+        'notStorable' => false,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'ticket',
+        'foreign' => 'name',
+        'foreignType' => 'varchar'
+      ],
       'isFollowed' => [
         'type' => 'varchar',
         'notStorable' => true,
@@ -16609,6 +16627,13 @@ return [
             'default' => false
           ]
         ]
+      ],
+      'ticket' => [
+        'type' => 'belongsTo',
+        'entity' => 'Ticket',
+        'key' => 'ticketId',
+        'foreignKey' => 'id',
+        'foreign' => 'contacts'
       ],
       'tasksPrimary' => [
         'type' => 'hasMany',
@@ -16921,6 +16946,13 @@ return [
           0 => 'assignedUserId'
         ],
         'key' => 'IDX_ASSIGNED_USER_ID'
+      ],
+      'ticketId' => [
+        'type' => 'index',
+        'columns' => [
+          0 => 'ticketId'
+        ],
+        'key' => 'IDX_TICKET_ID'
       ]
     ],
     'collection' => [
@@ -24040,8 +24072,8 @@ return [
       ],
       'name' => [
         'type' => 'varchar',
-        'len' => 32,
-        'fieldType' => 'varchar'
+        'fieldType' => 'varchar',
+        'len' => 255
       ],
       'deleted' => [
         'type' => 'bool',
@@ -24061,20 +24093,20 @@ return [
         'notNull' => false,
         'fieldType' => 'datetime'
       ],
-      'fullname' => [
-        'type' => 'varchar',
-        'len' => 32,
-        'fieldType' => 'varchar'
-      ],
       'email' => [
         'type' => 'varchar',
         'len' => 150,
         'fieldType' => 'varchar'
       ],
       'phone' => [
-        'type' => 'varchar',
+        'type' => 'text',
         'len' => 11,
-        'fieldType' => 'varchar'
+        'fieldType' => 'text'
+      ],
+      'part' => [
+        'type' => 'jsonArray',
+        'storeArrayValues' => true,
+        'fieldType' => 'jsonArray'
       ],
       'createdById' => [
         'dbType' => 'varchar',
@@ -24146,42 +24178,51 @@ return [
         'attributeRole' => 'nameMap',
         'fieldType' => 'linkMultiple'
       ],
-      'imageId' => [
+      'fileId' => [
         'dbType' => 'varchar',
         'len' => 24,
         'type' => 'foreignId',
         'index' => false,
         'notNull' => false
       ],
-      'imageName' => [
+      'fileName' => [
         'type' => 'foreign',
-        'relation' => 'image',
+        'relation' => 'file',
         'foreign' => 'name',
         'foreignType' => 'varchar'
       ],
-      'isFollowed' => [
-        'type' => 'varchar',
-        'notStorable' => true,
-        'notExportable' => true
-      ],
-      'followersIds' => [
+      'contactsIds' => [
         'type' => 'jsonArray',
         'notStorable' => true,
-        'notExportable' => true
+        'isLinkMultipleIdList' => true,
+        'relation' => 'contacts',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false
       ],
-      'followersNames' => [
+      'contactsNames' => [
         'type' => 'jsonObject',
         'notStorable' => true,
-        'notExportable' => true
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false
       ]
     ],
     'relations' => [
-      'image' => [
+      'file' => [
         'type' => 'belongsTo',
         'entity' => 'Attachment',
-        'key' => 'imageId',
+        'key' => 'fileId',
         'foreignKey' => 'id',
         'foreign' => NULL
+      ],
+      'contacts' => [
+        'type' => 'hasMany',
+        'entity' => 'Contact',
+        'foreignKey' => 'ticketId',
+        'foreign' => 'ticket'
       ],
       'teams' => [
         'type' => 'manyMany',
@@ -24238,15 +24279,6 @@ return [
         ],
         'key' => 'IDX_ASSIGNED_USER'
       ],
-      'system_fullTextSearch' => [
-        'columns' => [
-          0 => 'name'
-        ],
-        'flags' => [
-          0 => 'fulltext'
-        ],
-        'key' => 'IDX_SYSTEM_FULL_TEXT_SEARCH'
-      ],
       'createdById' => [
         'type' => 'index',
         'columns' => [
@@ -24268,9 +24300,6 @@ return [
         ],
         'key' => 'IDX_ASSIGNED_USER_ID'
       ]
-    ],
-    'fullTextSearchColumnList' => [
-      0 => 'name'
     ],
     'collection' => [
       'orderBy' => 'createdAt',

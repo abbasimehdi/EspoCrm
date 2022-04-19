@@ -1,0 +1,17 @@
+{
+    "scheduler": {
+        "disabled": true
+    },
+    "_delimiter_": {
+        "disabled": true
+    },
+    "users": {
+        "index": 0
+    },
+    "leads": {
+        "index": 1
+    },
+    "contacts": {
+        "index": 2
+    }
+}

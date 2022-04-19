@@ -1,2 +1,5 @@
 vendor
 .idea
+data/upload
+data/cache
+data/logs

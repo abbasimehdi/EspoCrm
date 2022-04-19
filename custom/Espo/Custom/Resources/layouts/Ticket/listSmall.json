@@ -1,0 +1,44 @@
+[
+    {
+        "name": "teams",
+        "notSortable": true
+    },
+    {
+        "name": "phone"
+    },
+    {
+        "name": "name",
+        "link": true
+    },
+    {
+        "name": "email"
+    },
+    {
+        "name": "description"
+    },
+    {
+        "name": "part",
+        "notSortable": true
+    },
+    {
+        "name": "user"
+    },
+    {
+        "name": "modifiedBy"
+    },
+    {
+        "name": "assignedUser"
+    },
+    {
+        "name": "file"
+    },
+    {
+        "name": "createdAt"
+    },
+    {
+        "name": "createdBy"
+    },
+    {
+        "name": "modifiedAt"
+    }
+]

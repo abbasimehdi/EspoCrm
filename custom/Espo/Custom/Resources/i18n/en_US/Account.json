@@ -1,0 +1,8 @@
+{
+    "fields": {
+        "ticket": "Ticket"
+    },
+    "links": {
+        "ticket": "Ticket"
+    }
+}

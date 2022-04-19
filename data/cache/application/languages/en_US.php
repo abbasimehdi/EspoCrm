@@ -2879,7 +2879,8 @@ no - can\'t view',
         'CheckNewVersion' => 'Check for New Version',
         'ProcessWebhookQueue' => 'Process Webhook Queue',
         'ProcessMassEmail' => 'Send Mass Emails',
-        'ControlKnowledgeBaseArticleStatus' => 'Control Knowledge Base Article Status'
+        'ControlKnowledgeBaseArticleStatus' => 'Control Knowledge Base Article Status',
+        'SendEmail' => 'Send email Job Label'
       ],
       'cronSetup' => [
         'linux' => 'Note: Add this line to the crontab file to run Espo Scheduled Jobs:',
@@ -3341,7 +3342,9 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
       'auth2FATotpSecret' => '2FA TOTP Secret',
       'acceptanceStatus' => 'Acceptance Status',
       'acceptanceStatusMeetings' => 'Acceptance Status (Meetings)',
-      'acceptanceStatusCalls' => 'Acceptance Status (Calls)'
+      'acceptanceStatusCalls' => 'Acceptance Status (Calls)',
+      'ticket' => 'Ticket',
+      'tickets' => 'Tickets'
     ],
     'links' => [
       'defaultTeam' => 'Default Team',
@@ -3356,7 +3359,9 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
       'tasks' => 'Tasks',
       'userData' => 'User Data',
       'dashboardTemplate' => 'Dashboard Template',
-      'targetLists' => 'Target Lists'
+      'targetLists' => 'Target Lists',
+      'ticket' => 'Ticket',
+      'tickets' => 'Tickets'
     ],
     'labels' => [
       'Create User' => 'Create User',
@@ -3488,7 +3493,8 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
       'campaign' => 'Campaign',
       'targetLists' => 'Target Lists',
       'targetList' => 'Target List',
-      'originalLead' => 'Original Lead'
+      'originalLead' => 'Original Lead',
+      'ticket' => 'Ticket'
     ],
     'links' => [
       'contacts' => 'Contacts',
@@ -3504,7 +3510,8 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
       'campaignLogRecords' => 'Campaign Log',
       'campaign' => 'Campaign',
       'portalUsers' => 'Portal Users',
-      'originalLead' => 'Original Lead'
+      'originalLead' => 'Original Lead',
+      'ticket' => 'Ticket'
     ],
     'options' => [
       'type' => [
@@ -3615,9 +3622,12 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
       'leads' => 'Leads',
       'reminders' => 'Reminders',
       'account' => 'Account',
-      'acceptanceStatus' => 'Acceptance Status'
+      'acceptanceStatus' => 'Acceptance Status',
+      'ticket' => 'Ticket'
     ],
-    'links' => [],
+    'links' => [
+      'ticket' => 'Ticket'
+    ],
     'options' => [
       'status' => [
         'Planned' => 'Planned',
@@ -3892,7 +3902,8 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
       'acceptanceStatus' => 'Acceptance Status',
       'accountIsInactive' => 'Account Inactive',
       'acceptanceStatusMeetings' => 'Acceptance Status (Meetings)',
-      'acceptanceStatusCalls' => 'Acceptance Status (Calls)'
+      'acceptanceStatusCalls' => 'Acceptance Status (Calls)',
+      'ticket' => 'Ticket'
     ],
     'links' => [
       'opportunities' => 'Opportunities',
@@ -3907,7 +3918,8 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
       'opportunitiesPrimary' => 'Opportunities (Primary)',
       'portalUser' => 'Portal User',
       'originalLead' => 'Original Lead',
-      'documents' => 'Documents'
+      'documents' => 'Documents',
+      'ticket' => 'Ticket'
     ],
     'labels' => [
       'Create Contact' => 'Create Contact'
@@ -4406,18 +4418,33 @@ Disabled: Access to scopes will be allowed if it\'s not specified in roles.',
   ],
   'Ticket' => [
     'fields' => [
-      'image' => 'Image',
-      'name' => 'fullname',
-      'fullname' => 'Fullname',
       'email' => 'Email',
-      'phone' => 'Phone'
+      'phone' => 'Phone',
+      'file' => 'File',
+      'part' => 'Part',
+      'users' => 'Users',
+      'user' => 'User',
+      'account' => 'Account',
+      'contacts' => 'Contacts',
+      'call' => 'Call'
     ],
-    'links' => [],
+    'links' => [
+      'users' => 'Users',
+      'user' => 'User',
+      'account' => 'Account',
+      'contacts' => 'Contacts',
+      'call' => 'Call'
+    ],
     'labels' => [
       'Create Ticket' => 'Create Ticket'
     ],
-    'tooltips' => [
-      'image' => 'upload image'
+    'options' => [
+      'part' => [
+        1 => 'support',
+        2 => 'sale',
+        'financial' => '3',
+        3 => 'financial'
+      ]
     ]
   ]
 ];

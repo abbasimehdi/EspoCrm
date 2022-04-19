@@ -1,0 +1,5 @@
+{
+  "SendEmail": {
+    "jobClassName": "Espo\\Custom\\Jobs\\SendEmail"
+  }
+}
