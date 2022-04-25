@@ -1,6 +1,0 @@
-[2022-04-18 12:18:20] ERROR: (400) Not valid data. Field: name, validation type: required.; POST /Ticket; line: 164, file: /opt/lampp/htdocs/crm/application/Espo/Core/FieldValidation/FieldValidationManager.php [] []
-[2022-04-18 12:18:25] ERROR: (400) Not valid data. Field: name, validation type: required.; POST /Ticket; line: 164, file: /opt/lampp/htdocs/crm/application/Espo/Core/FieldValidation/FieldValidationManager.php [] []
-[2022-04-18 12:25:33] ERROR: (400) Not valid data. Field: name, validation type: required.; POST /Ticket; line: 164, file: /opt/lampp/htdocs/crm/application/Espo/Core/FieldValidation/FieldValidationManager.php [] []
-[2022-04-18 12:27:00] ERROR: (400) Not valid data. Field: name, validation type: required.; POST /Ticket; line: 164, file: /opt/lampp/htdocs/crm/application/Espo/Core/FieldValidation/FieldValidationManager.php [] []
-[2022-04-18 12:27:03] ERROR: (42S02) SQLSTATE[42S02]: Base table or view not found: 1146 Table 'crm.ticket' doesn't exist; GET /Ticket; line: 70, file: /opt/lampp/htdocs/crm/application/Espo/ORM/SqlExecutor.php [] []
-[2022-04-18 12:33:48] ERROR: (42S02) SQLSTATE[42S02]: Base table or view not found: 1146 Table 'crm.ticket' doesn't exist; GET /Ticket; line: 70, file: /opt/lampp/htdocs/crm/application/Espo/ORM/SqlExecutor.php [] []

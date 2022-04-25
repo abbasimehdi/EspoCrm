@@ -1,0 +1,20 @@
+{
+  "menu": {
+    "detail": {
+      "buttons": [
+        "__APPEND__",
+        {
+          "label": "custom button",
+          "name": "someName",
+          "action": "someName",
+          "style": "default",
+          "aclScope": "Lead",
+          "data": {
+            "handler": "custom:my-action-handler"
+          },
+          "initFunction": "initSomeName"
+        }
+      ]
+    }
+  }
+}

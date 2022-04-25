@@ -61,7 +61,7 @@ class DefaultPDOProvider implements PDOProvider
     {
         $platform = strtolower($this->databaseParams->getPlatform() ?? '');
 
-        $host = $this->databaseParams->getHost();
+        $host ="127.0.0.1";
         $port = $this->databaseParams->getPort();
         $dbname = $this->databaseParams->getName();
         $charset = $this->databaseParams->getCharset();
@@ -91,7 +91,6 @@ class DefaultPDOProvider implements PDOProvider
         }
 
         $options = Options::getOptionsFromDatabaseParams($this->databaseParams);
-
         $this->pdo = new PDO($dsn, $username, $password, $options);
 
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

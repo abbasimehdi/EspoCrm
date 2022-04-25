@@ -1,0 +1,14 @@
+{
+  "detailActionList": [
+    "__APPEND__",
+    {
+      "label": "Test Action",
+      "name": "test",
+      "acl": "edit",
+      "data": {
+        "handler": "custom:contact-action-handler"
+      },
+      "initFunction": "initTest"
+    }
+  ]
+}

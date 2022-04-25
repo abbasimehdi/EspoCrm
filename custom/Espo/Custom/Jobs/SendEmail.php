@@ -16,7 +16,7 @@ class SendEmail implements JobDataLess
      */
     public function __construct()
     {
-         $this->user = Auth::user();
+         // Do nothing
     }
 
     /**
@@ -24,6 +24,6 @@ class SendEmail implements JobDataLess
      */
     public function run(): void
     {
-        var_dump($this->user);
+        var_dump(Auth::class);
     }
 }

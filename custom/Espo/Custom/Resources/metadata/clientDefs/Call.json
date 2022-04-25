@@ -1,0 +1,13 @@
+{
+  "detailActionList": [
+    "__APPEND__",
+    {
+      "label": "Test Action",
+      "name": "test",
+      "data": {
+        "handler": "custom:call-action-handler"
+      },
+      "initFunction": "initTest"
+    }
+  ]
+}
